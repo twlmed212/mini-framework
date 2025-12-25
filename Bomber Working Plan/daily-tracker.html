@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomberman - Daily Progress</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #ecf0f1;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 32px;
+        }
+        
+        .calendar {
+            display: grid;
+            grid-template-columns: 120px repeat(10, 1fr);
+            gap: 2px;
+            background: #bdc3c7;
+            border: 2px solid #bdc3c7;
+        }
+        
+        .calendar-header {
+            background: #34495e;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .person-label {
+            background: #34495e;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .person-1-label { background: #3498db; }
+        .person-2-label { background: #9b59b6; }
+        .person-3-label { background: #2ecc71; }
+        .person-4-label { background: #e67e22; }
+        
+        .day-cell {
+            background: white;
+            padding: 15px;
+            min-height: 100px;
+            position: relative;
+        }
+        
+        .day-cell.person-1 { border-left: 4px solid #3498db; }
+        .day-cell.person-2 { border-left: 4px solid #9b59b6; }
+        .day-cell.person-3 { border-left: 4px solid #2ecc71; }
+        .day-cell.person-4 { border-left: 4px solid #e67e22; }
+        
+        .day-cell.integration { background: #fff3cd; }
+        
+        .task-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #bdc3c7;
+            background: white;
+        }
+        
+        .status.done { background: #2ecc71; border-color: #27ae60; }
+        .status.progress { background: #f39c12; border-color: #e67e22; }
+        .status.pending { background: #ecf0f1; border-color: #bdc3c7; }
+        
+        .legend {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legend-circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid;
+        }
+        
+        .standup-box {
+            margin-top: 30px;
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .standup-box h3 {
+            margin-bottom: 15px;
+        }
+        
+        .standup-box ul {
+            list-style: none;
+        }
+        
+        .standup-box li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .standup-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📅 Bomberman - Daily Progress Tracker</h1>
+        </div>
+        
+        <div class="calendar">
+            <!-- Header Row -->
+            <div class="calendar-header"></div>
+            <div class="calendar-header">Day 1</div>
+            <div class="calendar-header">Day 2</div>
+            <div class="calendar-header">Day 3</div>
+            <div class="calendar-header">Day 4</div>
+            <div class="calendar-header">Day 5</div>
+            <div class="calendar-header">Day 6</div>
+            <div class="calendar-header">Day 7</div>
+            <div class="calendar-header">Day 8</div>
+            <div class="calendar-header">Day 9</div>
+            <div class="calendar-header">Day 10</div>
+            
+            <!-- Person 1 Row -->
+            <div class="person-label person-1-label">PERSON 1</div>
+            <div class="day-cell person-1">
+                <div class="task-title">Setup Project</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-1">
+                <div class="task-title">Server.js</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-1">
+                <div class="task-title">WebSocket</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-1">
+                <div class="task-title">GameManager</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-1">
+                <div class="task-title">Game Loop</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-1 integration">
+                <div class="task-title">Backend Integration</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-1 integration">
+                <div class="task-title">Frontend Connect</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-1 integration">
+                <div class="task-title">Full Integration</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-1 integration">
+                <div class="task-title">Testing</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-1 integration">
+                <div class="task-title">Deploy</div>
+                <div class="status pending"></div>
+            </div>
+            
+            <!-- Person 2 Row -->
+            <div class="person-label person-2-label">PERSON 2</div>
+            <div class="day-cell person-2">
+                <div class="task-title">Map Research</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-2">
+                <div class="task-title">Map.js</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-2">
+                <div class="task-title">Wall Placement</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-2">
+                <div class="task-title">Bomb.js</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-2">
+                <div class="task-title">Explosions</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-2 integration">
+                <div class="task-title">Backend Integration</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-2 integration">
+                <div class="task-title">Test Logic</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-2 integration">
+                <div class="task-title">Bug Fixes</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-2 integration">
+                <div class="task-title">Testing</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-2 integration">
+                <div class="task-title">Polish</div>
+                <div class="status pending"></div>
+            </div>
+            
+            <!-- Person 3 Row -->
+            <div class="person-label person-3-label">PERSON 3</div>
+            <div class="day-cell person-3">
+                <div class="task-title">WS Research</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-3">
+                <div class="task-title">websocket.js</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-3">
+                <div class="task-title">State Sync</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-3">
+                <div class="task-title">renderer.js</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-3">
+                <div class="task-title">Entities</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-3 integration">
+                <div class="task-title">Test Connection</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-3 integration">
+                <div class="task-title">Frontend Integration</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-3 integration">
+                <div class="task-title">Full Test</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-3 integration">
+                <div class="task-title">Testing</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-3 integration">
+                <div class="task-title">Polish</div>
+                <div class="status pending"></div>
+            </div>
+            
+            <!-- Person 4 Row -->
+            <div class="person-label person-4-label">PERSON 4</div>
+            <div class="day-cell person-4">
+                <div class="task-title">Input Planning</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-4">
+                <div class="task-title">input.js</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-4">
+                <div class="task-title">lobby.js</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-4">
+                <div class="task-title">gameOver.js</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-4">
+                <div class="task-title">main.js</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-4 integration">
+                <div class="task-title">Test UI</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-4 integration">
+                <div class="task-title">Frontend Integration</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-4 integration">
+                <div class="task-title">Full Test</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-4 integration">
+                <div class="task-title">Testing</div>
+                <div class="status pending"></div>
+            </div>
+            <div class="day-cell person-4 integration">
+                <div class="task-title">Polish</div>
+                <div class="status pending"></div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-circle pending"></div>
+                <span>Not Started</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-circle progress"></div>
+                <span>In Progress</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-circle done"></div>
+                <span>Completed</span>
+            </div>
+        </div>
+        
+        <div class="standup-box">
+            <h3>📢 Daily Standup (9:00 AM - 15 minutes)</h3>
+            <ul>
+                <li>What did I complete yesterday?</li>
+                <li>What will I work on today?</li>
+                <li>Any blockers or help needed?</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Click to toggle status
+        document.querySelectorAll('.status').forEach(status => {
+            status.addEventListener('click', function() {
+                if (this.classList.contains('pending')) {
+                    this.classList.remove('pending');
+                    this.classList.add('progress');
+                } else if (this.classList.contains('progress')) {
+                    this.classList.remove('progress');
+                    this.classList.add('done');
+                } else {
+                    this.classList.remove('done');
+                    this.classList.add('pending');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

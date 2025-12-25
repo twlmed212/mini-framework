@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomberman - Project Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .tech-badge {
+            background: #ecf0f1;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #34495e;
+        }
+        
+        .timeline {
+            text-align: center;
+            background: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .person-column {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .person-column.backend {
+            border-color: #3498db;
+        }
+        
+        .person-column.frontend {
+            border-color: #2ecc71;
+        }
+        
+        .person-header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .person-header.backend {
+            background: #3498db;
+        }
+        
+        .person-header.frontend {
+            background: #2ecc71;
+        }
+        
+        .person-header h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .person-header p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        .task-box {
+            background: white;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .task-box h4 {
+            color: #2c3e50;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .task-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .task-box li {
+            font-size: 12px;
+            color: #555;
+            padding: 3px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .task-box li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+        
+        .files-section {
+            background: #fff3cd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .files-section h5 {
+            font-size: 12px;
+            color: #856404;
+            margin-bottom: 5px;
+        }
+        
+        .files-section p {
+            font-size: 11px;
+            color: #856404;
+            font-family: monospace;
+        }
+        
+        .integration-timeline {
+            margin-top: 40px;
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .integration-timeline h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .timeline-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .timeline-box {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #dee2e6;
+        }
+        
+        .timeline-box.individual {
+            border-color: #3498db;
+        }
+        
+        .timeline-box.integration {
+            border-color: #f39c12;
+        }
+        
+        .timeline-box.testing {
+            border-color: #e74c3c;
+        }
+        
+        .timeline-box h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .timeline-box p {
+            font-size: 12px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 Bomberman DOM - 4 Person Team</h1>
+            <div class="tech-stack">
+                <div class="tech-badge">Backend: Node.js + WebSocket</div>
+                <div class="tech-badge">Frontend: Mini Framework</div>
+            </div>
+            <div class="timeline">Timeline: 10 Days Total</div>
+        </div>
+        
+        <div class="team-grid">
+            <!-- Person 1 -->
+            <div class="person-column backend">
+                <div class="person-header backend">
+                    <h3>PERSON 1</h3>
+                    <p>Backend - Server & Game State</p>
+                </div>
+                
+                <div class="task-box">
+                    <h4>📦 Day 1: Setup</h4>
+                    <ul>
+                        <li>npm init</li>
+                        <li>install express, ws</li>
+                        <li>create folder structure</li>
+                    </ul>
+                </div>
+                
+                <div class="task-box">
+                    <h4>🌐 Days 2-3: WebSocket Server</h4>
+                    <ul>
+                        <li>server.js setup</li>
+                        <li>handle connections</li>
+                        <li>test with 2 clients</li>
+                    </ul>
+                </div>
+                
+                <div class="task-box">
+                    <h4>🎮 Days 4-5: Game Manager</h4>
+                    <ul>
+                        <li>GameManager.js</li>
+                        <li>player management</li>
+                        <li>game loop</li>
+                        <li>broadcast state</li>
+                    </ul>
+                </div>
+                
+                <div class="files-section">
+                    <h5>📁 Files:</h5>
+                    <p>server.js<br>GameManager.js</p>
+                </div>
+            </div>
+            
+            <!-- Person 2 -->
+            <div class="person-column backend">
+                <div class="person-header backend">
+                    <h3>PERSON 2</h3>
+                    <p>Backend - Map & Bombs</p>
+                </div>
+                
+                <div class="task-box">
+                    <h4>🗺️ Days 1-3: Map Generation</h4>
+                    <ul>
+                        <li>Map.js</li>
+                        <li>hard walls placement</li>
+                        <li>destructible walls</li>
+                        <li>spawn area clearing</li>
+                    </ul>
+                </div>
+                
+                <div class="task-box">
+                    <h4>💣 Days 4-5: Bomb System</h4>
+                    <ul>
+                        <li>Bomb.js</li>
+                        <li>explosion logic</li>
+                        <li>collision detection</li>
+                        <li>wall destruction</li>
+                    </ul>
+                </div>
+                
+                <div class="files-section">
+                    <h5>📁 Files:</h5>
+                    <p>Map.js<br>Player.js<br>Bomb.js</p>
+                </div>
+            </div>
+            
+            <!-- Person 3 -->
+            <div class="person-column frontend">
+                <div class="person-header frontend">
+                    <h3>PERSON 3</h3>
+                    <p>Frontend - Network & Rendering</p>
+                </div>
+                
+                <div class="task-box">
+                    <h4>🔌 Days 1-3: WebSocket Client</h4>
+                    <ul>
+                        <li>websocket.js</li>
+                        <li>connect to server</li>
+                        <li>receive game state</li>
+                        <li>state updates</li>
+                    </ul>
+                </div>
+                
+                <div class="task-box">
+                    <h4>🎨 Days 4-5: Game Renderer</h4>
+                    <ul>
+                        <li>renderer.js</li>
+                        <li>render grid</li>
+                        <li>render players</li>
+                        <li>render bombs/explosions</li>
+                    </ul>
+                </div>
+                
+                <div class="files-section">
+                    <h5>📁 Files:</h5>
+                    <p>websocket.js<br>renderer.js</p>
+                </div>
+            </div>
+            
+            <!-- Person 4 -->
+            <div class="person-column frontend">
+                <div class="person-header frontend">
+                    <h3>PERSON 4</h3>
+                    <p>Frontend - Input & UI</p>
+                </div>
+                
+                <div class="task-box">
+                    <h4>⌨️ Days 1-3: Input Handling</h4>
+                    <ul>
+                        <li>input.js</li>
+                        <li>arrow keys</li>
+                        <li>space for bomb</li>
+                        <li>send to WebSocket</li>
+                    </ul>
+                </div>
+                
+                <div class="task-box">
+                    <h4>🖥️ Days 4-5: UI Screens</h4>
+                    <ul>
+                        <li>lobby.js</li>
+                        <li>gameOver.js</li>
+                        <li>main.js integration</li>
+                    </ul>
+                </div>
+                
+                <div class="files-section">
+                    <h5>📁 Files:</h5>
+                    <p>input.js<br>lobby.js<br>gameOver.js<br>main.js</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="integration-timeline">
+            <h3>📅 Integration Timeline</h3>
+            <div class="timeline-row">
+                <div class="timeline-box individual">
+                    <h4>Week 1 (Days 1-5)</h4>
+                    <p><strong>Individual Work</strong><br>
+                    Each person works on their assigned tasks independently.<br>
+                    Daily standup at 9:00 AM (15 min)</p>
+                </div>
+                
+                <div class="timeline-box integration">
+                    <h4>Week 2 (Days 6-8)</h4>
+                    <p><strong>Integration</strong><br>
+                    Day 6: Backend integration (P1 + P2)<br>
+                    Day 7: Frontend integration (P3 + P4)<br>
+                    Day 8: Full system integration</p>
+                </div>
+                
+                <div class="timeline-box testing">
+                    <h4>Week 3 (Days 9-10)</h4>
+                    <p><strong>Testing & Polish</strong><br>
+                    Day 9: Testing & bug fixes<br>
+                    Day 10: Final polish & deploy</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
